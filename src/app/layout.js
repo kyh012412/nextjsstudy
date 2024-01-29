@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "./globals.css";
 
 export const metadata = {
@@ -9,20 +10,25 @@ export default function RootLayout({ children }) {
   return (
     <html>
       <body>
-      <h1><a href="/">WEB</a></h1>
+      <h1><Link href="/">WEB</Link></h1>
       <ol>
-        <li><a href="/read/1">html</a></li>
-        <li><a href="/read/2">CSS</a></li>
+        <li><Link href="/read/1">html</Link></li>
+        <li><Link href="/read/2">CSS</Link></li>
       </ol>
       {children}
         <ul>
-          <li><a href="/create">Create</a></li>
-          <li><a href="/update/1">Update</a></li>
+          <li><Link href="/create">Create</Link></li>
+          <li><Link href="/update/1">Update</Link></li>
           <li><input type="button" value="delete" /></li>
         </ul>
       </body>
     </html>
   );
 }
-//이 페이지가 기본적인 골격을 구성
-//공통으로 출력되야하는것이 있다면 이 쪽 페이지에서 구현하는것이 좋음
+/*****
+이 페이지가 기본적인 골격을 구성
+공통으로 출력되야 하는 것이 있다면
+이 쪽 페이지에서 구현하는것이 좋음
+a -> Link( next/link 임포트필요)
+이미 방문한 페이지를 더 빠르게 방문할 수있다.
+*****/
