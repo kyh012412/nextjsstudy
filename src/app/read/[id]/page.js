@@ -1,6 +1,5 @@
 export default async function Read(props){
     const resp = await fetch(`http://localhost:9999/topics/${props.params.id}`);
-    console.log(resp);
     const topic = await resp.json();
 
     return (

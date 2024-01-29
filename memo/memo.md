@@ -61,3 +61,6 @@ fetch('http://localhost:9999/topics')
   //또는
   //{cache:'no-store'}
 ```
+14. update & delete 버튼 구현
+- 기본적으로 layout.js에서는 [id]를 확인할 수 없다.
+- 최상위 layout에서는 props에 param에 id가 주입되지 않는다.
