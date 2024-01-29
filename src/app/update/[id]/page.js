@@ -10,7 +10,7 @@ export default function Update() {
   const [title,setTitle] = useState('');
   const [body,setBody] = useState('');
   useEffect(()=>{
-    fetch('http://localhost:9999/topics/'+id,{cache:'no-store'})
+    fetch(process.env.NEXT_PUBLIC_API_URL+'topics/'+id,{cache:'no-store'})
     .then(res=>res.json())
     .then(result=>{
       console.log(result);
@@ -34,7 +34,7 @@ export default function Update() {
         body: JSON.stringify({title,body})
       }
 
-      fetch(`http://localhost:9999/topics/`+id,options)
+      fetch(process.env.NEXT_PUBLIC_API_URL+`topics/`+id,options)
         .then(res=>res.json())
         .then(result=>{
           console.log(result);

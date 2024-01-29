@@ -64,3 +64,9 @@ fetch('http://localhost:9999/topics')
 14. update & delete 버튼 구현
 - 기본적으로 layout.js에서는 [id]를 확인할 수 없다.
 - 최상위 layout에서는 props에 param에 id가 주입되지 않는다.
+
+17. .env.local 설정
+- .env.local 파일을 만들고 정보를 적어준다.(db정보등)
+```.env.local
+NEXT_PUBLIC_API_URL=http://localhost:9999/
+```

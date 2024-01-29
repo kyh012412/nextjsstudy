@@ -11,7 +11,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
     //한번만 실행해야하니 빈배열을 두번째 매개변수로 사용한 useEffect사용 
-  const resp = await fetch('http://localhost:9999/topics',{cache:'no-store'});
+  const resp = await fetch(process.env.NEXT_PUBLIC_API_URL+'topics',{cache:'no-store'});
   //두번째 인자로
   //{next:{revalidate:0}}
   //캐시를 0초동안만 유지하겠다.
