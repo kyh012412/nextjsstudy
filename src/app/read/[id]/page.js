@@ -1,8 +1,17 @@
-export default function Read(props){
+/*****
+ * 이 페이지는 유저와 상호작용하지 않는다.
+ * 값을 뿌려주기만한다.
+*****/
+
+export default async function Read(props){
+    const res = await fetch(`http://localhost:9999/topics/${props.params.id}`);
+    const topic = await res.json();
+
     return (
         <>
-            <h2>read</h2>
-            parameters : {props.params.id}
+            <h2>{topic.title}</h2>
+            body : {topic.body}
+            parameters : {topic.id}
         </>
     );
 }
