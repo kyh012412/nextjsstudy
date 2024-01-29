@@ -27,8 +27,9 @@ export default function Create() {
         .then(res=>res.json())
         .then(result=>{
           console.log(result);
-          const lastid = result.id;
-          router.push(`/read/${lastid}`)
+          const last = result.id;
+          router.push(`/read/${last}`)
+          router.refresh()
         });
       }}>
       <p>

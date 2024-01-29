@@ -47,3 +47,17 @@ fetch('http://localhost:9999/topics')
 - next에서는 특별한 조치를 하지않으면 ServerComponent로 간주한다.
 - 정보를 표현하면서 사용자와 상호작용하지 않는 것은 ServerComponent로 만드는 것이 유리
 - ServerComponent내에 사용자와 상호작용하는 버튼이 있을 때 버튼만 새로운 컴포넌트이면서 ClientCompoent로 만드는것이 유리하다.
+
+-----
+13. 캐시
+- cache: HIT 가 뜨면 캐시를 사용한 것
+- cache: MISS 가 뜨면 캐시를 사용하지 않은 것
+- cache를 사용하지 않고 다시하려면 revalidating을 사용
+```js
+  const resp = await fetch('http://localhost:9999/topics',{cache:'no-store'});
+  //두번째 인자로
+  //{next:{revalidate:0}}
+  //캐시를 0초동안만 유지하겠다.
+  //또는
+  //{cache:'no-store'}
+```

@@ -10,7 +10,14 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
     //한번만 실행해야하니 빈배열을 두번째 매개변수로 사용한 useEffect사용 
-  const resp = await fetch('http://localhost:9999/topics')
+  const resp = await fetch('http://localhost:9999/topics',{cache:'no-store'});
+  //두번째 인자로
+  //{next:{revalidate:0}}
+  //캐시를 0초동안만 유지하겠다.
+  //또는
+  //{cache:'no-store'}
+
+
   //await가 들어가면 fetch가 끝날때까지 기다림
   const topics = await resp.json();
   //서버쪽에서 데이터를 다 가져와서 완성된 html만 client에게 보낸다.
@@ -22,7 +29,7 @@ export default async function RootLayout({ children }) {
       <ol>
         {topics.map((topic)=>{          
           return <li key={topic.id}><Link href={`/read/${topic.id}`}>{topic.title}</Link></li>
-        })}      
+        })}
       </ol>
       {children}
         <ul>

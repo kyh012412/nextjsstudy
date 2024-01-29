@@ -1,11 +1,7 @@
-/*****
- * 이 페이지는 유저와 상호작용하지 않는다.
- * 값을 뿌려주기만한다.
-*****/
-
 export default async function Read(props){
-    const res = await fetch(`http://localhost:9999/topics/${props.params.id}`);
-    const topic = await res.json();
+    const resp = await fetch(`http://localhost:9999/topics/${props.params.id}`);
+    console.log(resp);
+    const topic = await resp.json();
 
     return (
         <>
@@ -15,3 +11,7 @@ export default async function Read(props){
         </>
     );
 }
+/*****
+ * 이 페이지는 유저와 상호작용하지 않는다.
+ * 값을 뿌려주기만한다.
+*****/
