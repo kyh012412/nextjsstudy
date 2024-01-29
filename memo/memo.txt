@@ -7,3 +7,28 @@ npm run build로 배포용을 만들수 있음
 별도의 루트지정이없다면
 img파일을 찾을때 public 부터 찾기때문에
 /파일이름.파일형식 으로 불러올수 있다.
+
+빠른 백엔드 구축을위해
+최상위폴더에 db.json
+이하의 내용 
+{
+    "topics":[
+        {"id":1,"title":"html","body":"html is ..."},
+        {"id":2,"title":"css","body":"css is ..."}
+    ]
+}
+
+npx json-server --port 999 --watch db.json
+
+//fetch().then().then();에서 시작
+//fetch(url).then(fn).then(fn);
+//fetch(url).then(()=>{}).then(()=>{});
+
+
+fetch('http://localhost:999/topics')
+.then((res)=> {
+    return res.json();
+})
+.then(result=>{
+    console.log(result)
+});
